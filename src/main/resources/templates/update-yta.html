@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Phòng khám</title>
+      	<link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    </head>
+
+
+<body class="sb-nav-fixed">
+<div th:replace="/layout/header :: header"> </div>
+ <div id="layoutSidenav_content">
+    <div class="container my-5">
+        <h3> Update Y Ta</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-8">
+                    <form action="#" th:action="@{/ytas/update/{id}(id=${yta.id})}" th:object="${yta}" method="post">
+                        <div class="row">
+                             <div class="form-group col-md-8">
+                                <label for="cmt" class="col-form-label">CMT</label>
+                                <input type="text" th:field="*{cmt}" class="form-control" id="cmt" placeholder="CMT"> 
+                                 <span th:if="${#fields.hasErrors('cmt')}" th:errors="*{cmt}" class="text-danger"></span>
+                            </div>
+                             <div class="form-group col-md-8">
+                                <label for="ten" class="col-form-label">Ten</label>
+                                <input type="text" th:field="*{ten}" class="form-control" id="ten" placeholder="Ten"> 
+                                 <span th:if="${#fields.hasErrors('ten')}" th:errors="*{ten}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="trinhDo" class="col-form-label">Trinh do</label> 
+                                 <input type="text" th:field="*{trinhDo}" class="form-control" id="trinhDo" placeholder="Trinh do">
+                                 <span th:if="${#fields.hasErrors('trinhDo')}" th:errors="*{trinhDo}" class="text-danger"></span> 
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="thamNien" class="col-form-label">Tham nien</label>
+                                <input type="text" th:field="*{thamNien}" class="form-control" id="thamNien" placeholder="Tham Nien">
+                                  <span th:if="${#fields.hasErrors('thamNien')}" th:errors="*{thamNien}" class="text-danger"></span> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="ngaySinh" class="col-form-label">Ngay sinh</label>
+                                 <input type="text" th:field="*{ngaySinh}" class="form-control" id="ngaySinh" placeholder="Ngay sinh">
+                                  <span th:if="${#fields.hasErrors('ngaySinh')}" th:errors="*{ngaySinh}" class="text-danger"></span> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="diaChi" class="col-form-label">Dia chi</label>
+                                <input type="text" th:field="*{diaChi}" class="form-control" id="diaChi" placeholder="Dia chi">
+                                  <span th:if="${#fields.hasErrors('diaChi')}" th:errors="*{diaChi}" class="text-danger"></span>
+                            </div>
+                             <div class="form-group col-md-8">
+                                <label for="SDT" class="col-form-label">So dien thoai</label>
+                                 <input type="text" th:field="*{sdt}" class="form-control" id="sdt" placeholder="SDT">
+                                  <span th:if="${#fields.hasErrors('sdt')}" th:errors="*{sdt}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Update">
+                            </div>
+                        
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div th:replace="/layout/footer :: footer"> </div>
+    </div>
+</body>
+
+</html>

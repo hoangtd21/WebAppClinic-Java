@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Phòng khám</title>
+      	<link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    </head>
+
+<body class="sb-nav-fixed">
+<div th:replace="/layout/header :: header"> </div>
+ <div id="layoutSidenav_content">
+
+    <div class="container my-5">
+        <h3> Add Lan Kham</h3>
+   		<div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form action="#" th:action="@{/lankhams/add}" th:object="${lanKham}" method="post">
+                        <div class="row">
+                             <div class="form-group col-md-8">
+                                <label for="ngayVao" class="col-form-label">Ngay vao</label>
+                                <input type="text" th:field="*{ngayVao}" class="form-control" id="ngayVao" placeholder="Ngay vao"> 
+                                 <span th:if="${#fields.hasErrors('ngayVao')}" th:errors="*{ngayVao}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="ngayRa" class="col-form-label">Ngay ra</label> 
+                                 <input type="text" th:field="*{ngayRa}" class="form-control" id="ngayRa" placeholder="Ngay ra">
+                                 <span th:if="${#fields.hasErrors('ngayRa')}" th:errors="*{ngayRa}" class="text-danger"></span> 
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="tenBenh" class="col-form-label">Ten benh</label>
+                                <input type="text" th:field="*{tenBenh}" class="form-control" id="tenBenh" placeholder="Ten benh">
+                                  <span th:if="${#fields.hasErrors('tenBenh')}" th:errors="*{tenBenh}" class="text-danger"></span> 
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="tongTien" class="col-form-label">Tong tien</label>
+                                 <input type="text" th:field="*{tongTien}" class="form-control" id="tongTien" placeholder="Tong tien">
+                                  <span th:if="${#fields.hasErrors('tongTien')}" th:errors="*{tongTien}" class="text-danger"></span> 
+                            </div>
+                           
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-primary" value="Add">
+                               
+                                <a href="/loaithuocs/list" class="btn btn-primary">
+						 		<i class="fas fa-calendar-plus"> Kê thuốc</i></a>       
+						 		
+						 		<a href="http://localhost:8080/lankhams/list">
+                                <input type="button" class="btn btn-secondary" value="Return">
+                                </a>   
+                            </div>
+
+                            <div class="form-group col-md-8"></div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>   
+        <div th:replace="/layout/footer :: footer"> </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+ <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Phòng khám</title>
+      	<link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    </head>
+    <body class="sb-nav-fixed">
+    <div class="navbar-form navbar-right"> 
+  
+  <div sec:authorize="isAuthenticated()"> 
+    <a class="btn btn-success"th:href="@{/}"></a> 
+  </div> 
+  
+  <div sec:authorize="isAnonymous()"> 
+    <a class="btn btn-success" th:href="@{/login}">Login</a>
+    <a class="btn btn-primary" th:href="@{/register}">Register</a>  
+  </div>
+  
+</div>
+       <div th:replace="/layout/header :: header"> </div>
+            <div id="layoutSidenav_content">
+                <div class="container my-2">
+		<div class="card">
+			<div class="card-body">
+			<h3><i class="fas fa-clinic-medical"> Quản lý thông tin</i></h3>		
+					<p class="my-5">
+						<a href="/bacsys/list" class="btn btn-primary mr-5">
+						 <i class="fas fa-user-md"> Bác sỹ</i></a>
+						 
+						 <a href="/ytas/list" class="btn btn-primary mr-5">
+						 <i class="fas fa-user-nurse"> Y Tá</i></a>
+						 
+						 <a href="/benhnhans/list" class="btn btn-primary mr-5">
+						 <i class="fas fa-user-plus ml-2"> Bệnh nhân</i></a>
+						 
+						 <a href="/lankhams/list" class="btn btn-primary">
+						 <i class="fas fa-calendar-plus"> Lần khám bệnh</i></a>
+					</p>																				
+				</div>
+			</div>
+		</div>	
+               <div th:replace="/layout/footer :: footer"> </div>
+            </div>
+        </div>     
+    </body>
+</html>
